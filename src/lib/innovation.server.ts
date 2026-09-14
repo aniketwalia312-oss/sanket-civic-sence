@@ -411,15 +411,7 @@ export async function syncProjectProgress(projectId: string) {
   return { progress };
 }
 
-const ROLE_PASSKEYS: Record<string, "university" | "industry" | "government"> = {
-  UNIVERSITY123: "university",
-  INDUSTRY123: "industry",
-  GOVT123: "government",
-};
-
 export async function elevateEcosystemRole(userId: string, passkey: string) {
-  const role = ROLE_PASSKEYS[passkey];
-  if (!role) throw new Error("Invalid access passkey");
-  await supabaseAdmin.from("user_roles").upsert({ user_id: userId, role }, { onConflict: "user_id,role" });
-  return { role };
+  const { redeemRoleInvite } = await import("./role-invites.server");
+  return await redeemRoleInvite(userId, passkey, ["university", "industry", "government"]);
 }
