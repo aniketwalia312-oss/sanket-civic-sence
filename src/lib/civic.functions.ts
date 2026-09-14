@@ -31,6 +31,21 @@ export const elevateRole = createServerFn({ method: "POST" })
     return await elevate(context.userId, data.passkey);
   });
 
+export const createRoleInvite = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: unknown) =>
+    z
+      .object({
+        role: z.enum(["worker", "official_admin", "university", "industry", "government"]),
+        expiresInDays: z.number().int().min(1).max(30).optional(),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data, context }) => {
+    const { issueRoleInvite } = await import("./role-invites.server");
+    return await issueRoleInvite(context.userId, data.role, data.expiresInDays ?? 7);
+  });
+
 export const submitResolution = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) =>
