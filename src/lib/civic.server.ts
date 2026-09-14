@@ -240,14 +240,7 @@ export async function tallyVotes(issueId: string) {
   return { total: all.length, still, resolved, reopened: false };
 }
 
-const PASSKEYS: Record<string, "worker" | "official_admin"> = {
-  India123: "worker",
-  INDIA123: "official_admin",
-};
-
 export async function elevate(userId: string, passkey: string) {
-  const role = PASSKEYS[passkey];
-  if (!role) throw new Error("Invalid access passkey");
-  await supabaseAdmin.from("user_roles").upsert({ user_id: userId, role }, { onConflict: "user_id,role" });
-  return { role };
+  const { redeemRoleInvite } = await import("./role-invites.server");
+  return await redeemRoleInvite(userId, passkey, ["worker", "official_admin"]);
 }
