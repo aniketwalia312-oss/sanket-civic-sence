@@ -57,7 +57,7 @@ function AuthPage() {
       toast.success(role === "official_admin" ? "Admin access granted" : "Field worker access granted");
       void navigate({ to: role === "official_admin" ? "/admin/dashboard" : "/worker/dashboard", replace: true });
     } catch {
-      toast.error("Invalid access passkey");
+      toast.error("Invalid or expired invitation code");
       void navigate({ to: "/dashboard/citizen", replace: true });
     }
   };
@@ -113,7 +113,7 @@ function AuthPage() {
           </div>
           <h1 className="mt-3 text-2xl font-semibold">Sanket access</h1>
           <p className="text-sm text-muted-foreground">
-            Citizens sign in freely. Field workers and officials add their passkey.
+            Citizens sign in freely. Field workers and officials add their invitation code.
           </p>
         </div>
 
@@ -185,13 +185,13 @@ function PasskeyField({ value, onChange }: { value: string; onChange: (v: string
   return (
     <div className="space-y-1.5">
       <Label htmlFor="passkey" className="flex items-center gap-1.5">
-        <KeyRound className="h-3.5 w-3.5" /> Role passkey (optional)
+        <KeyRound className="h-3.5 w-3.5" /> Invitation code (optional)
       </Label>
       <Input
         id="passkey"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Field worker or official passkey"
+        placeholder="One-time invitation code"
       />
     </div>
   );
