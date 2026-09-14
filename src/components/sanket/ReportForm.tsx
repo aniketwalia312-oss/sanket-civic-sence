@@ -54,12 +54,6 @@ export function ReportForm() {
       toast.error("A photo of the issue is required");
       return;
     }
-    const position = coords ?? (await currentPosition());
-    if (!position) {
-      toast.error("GPS location is required to file a report");
-      return;
-    }
-
     setBusy(true);
     try {
       setStage("Extracting EXIF & perceptual hash…");
@@ -68,6 +62,23 @@ export function ReportForm() {
         readExif(file),
         compressImage(file),
       ]);
+
+      // Prefer live GPS, fall back to the photo's own EXIF coordinates.
+      const position =
+        coords ??
+        (await currentPosition()) ??
+        (exif.lat != null && exif.lng != null ? { lat: exif.lat, lng: exif.lng } : null);
+      if (!position) {
+        toast.error("Location unavailable", {
+          description:
+            "Allow location access for this site, or upload a photo that has location data saved in it.",
+        });
+        setBusy(false);
+        setStage("");
+        return;
+      }
+      if (!coords) setCoords(position);
+
 
       setStage("Uploading evidence…");
       const path = `${session.user.id}/${crypto.randomUUID()}.jpg`;
