@@ -5,6 +5,7 @@ import { AppShell } from "@/components/sanket/AppShell";
 import { IssueMap } from "@/components/sanket/IssueMap";
 import { Button } from "@/components/ui/button";
 import { issuesQuery } from "@/lib/queries";
+import { useSanketAuth } from "@/hooks/useSanketAuth";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,7 +29,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
-  const { data: issues = [] } = useQuery(issuesQuery);
+  const { session } = useSanketAuth();
+  const { data: issues = [] } = useQuery({ ...issuesQuery, enabled: Boolean(session), retry: false });
 
   return (
     <AppShell>
