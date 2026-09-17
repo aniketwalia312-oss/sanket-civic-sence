@@ -96,6 +96,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
+        { title: "Sanket — Intelligent Civic Grievance & Resolution Platform" },
+      {
+        name: "description",
+        content:
+          "AI evidence integrity, spatial deduplication and citizen-audited municipal repairs.",
+      },
+      { name: "author", content: "Sanket" },
+      { property: "og:title", content: "Sanket — Civic Grievance & Resolution Platform" },
+      {
+        property: "og:description",
+        content:
+          "AI evidence integrity, spatial deduplication and citizen-audited municipal repairs.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "alternate icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
