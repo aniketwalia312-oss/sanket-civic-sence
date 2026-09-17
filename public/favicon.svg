@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2930"/>
+      <stop offset="100%" stop-color="#081e24"/>
+    </linearGradient>
+    <linearGradient id="saffron" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded squircle -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <rect width="62" height="62" x="1" y="1" rx="13" fill="none" stroke="#234e56" stroke-width="1.5"/>
+
+  <!-- Subtle radar sweep quadrant glow -->
+  <path d="M 32 32 L 48 16 A 22.6 22.6 0 0 0 32 9.4 Z" fill="url(#glow)"/>
+
+  <!-- Radar Rings -->
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#225b67" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <circle cx="32" cy="32" r="14" fill="none" stroke="#2d7887" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="6" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+
+  <!-- Radar Crosshairs (subtle) -->
+  <line x1="32" y1="8" x2="32" y2="56" stroke="#1d4d57" stroke-width="1"/>
+  <line x1="8" y1="32" x2="56" y2="32" stroke="#1d4d57" stroke-width="1"/>
+
+  <!-- Radar Sweep Arm (Saffron Accent) -->
+  <line x1="32" y1="32" x2="48" y2="16" stroke="url(#saffron)" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Center Signal Beacon (Saffron Accent) -->
+  <circle cx="32" cy="32" r="3.5" fill="url(#saffron)"/>
+
+  <!-- Civic ping marker -->
+  <circle cx="48" cy="16" r="2.5" fill="#f97316"/>
+  <circle cx="48" cy="16" r="4.5" fill="none" stroke="#fb923c" stroke-width="1" opacity="0.75"/>
+</svg>
