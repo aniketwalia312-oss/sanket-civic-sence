@@ -131,7 +131,7 @@ export function ReportForm() {
   return (
     <form onSubmit={onSubmit} className="panel space-y-4 p-5">
       <div>
-        <h2 className="text-lg font-semibold">Report an issue</h2>
+        <h2 className="text-lg font-semibold">Report maintenance issue</h2>
         <p className="text-sm text-muted-foreground">
           Photo, GPS and AI verification are captured together to keep evidence auditable.
         </p>
@@ -185,7 +185,7 @@ export function ReportForm() {
             value={address}
             maxLength={200}
             onChange={(e) => setAddress(e.target.value)}
-            placeholder="e.g. Near Ward 12 bus stop"
+            placeholder="e.g. e.g. Near Science Block library"
           />
         </div>
       </div>
