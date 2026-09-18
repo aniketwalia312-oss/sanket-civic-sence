@@ -102,7 +102,7 @@ function Landing() {
           Visible factors turn urgency into a priority anyone can understand.
         </Feature>
         <Feature icon={Radar} title="AI Resolution Audit">
-          Before-and-after evidence supports a citizen-verified outcome.
+          Before-and-after evidence supports a student-verified outcome.
         </Feature>
         </div>
       </section>
@@ -113,7 +113,7 @@ function Landing() {
           <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">From signal to verified resolution</h2>
         </div>
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] lg:items-center">
-          <FlowStep icon={Users} label="Citizen Reports" />
+          <FlowStep icon={Users} label="Student Reports" />
           <FlowArrow />
           <FlowStep icon={BrainCircuit} label="AI Understanding" />
           <FlowArrow />
@@ -123,9 +123,9 @@ function Landing() {
           <FlowArrow />
           <FlowStep icon={Sparkles} label="Priority" />
           <FlowArrow />
-          <FlowStep icon={Building2} label="Authority Action" />
+          <FlowStep icon={Building2} label="Facility Action" />
           <FlowArrow />
-          <FlowStep icon={Files} label="Citizen Verification" />
+          <FlowStep icon={Files} label="Student Verification" />
         </div>
       </section>
     </AppShell>
