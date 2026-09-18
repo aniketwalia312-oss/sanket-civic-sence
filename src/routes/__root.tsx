@@ -79,36 +79,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-    ],
-  }),
-        { title: "Sanket — Intelligent Civic Grievance & Resolution Platform" },
-      {
-        name: "description",
-        content:
-          "AI evidence integrity, spatial deduplication and citizen-audited municipal repairs.",
-      },
+      { title: "Sanket — Campus Intelligence" },
+      { name: "description", content: "Anonymous student signals transformed into actionable campus intelligence." },
       { name: "author", content: "Sanket" },
-      { property: "og:title", content: "Sanket — Civic Grievance & Resolution Platform" },
-      {
-        property: "og:description",
-        content:
-          "AI evidence integrity, spatial deduplication and citizen-audited municipal repairs.",
-      },
+      { property: "og:title", content: "Sanket — Campus Intelligence" },
+      { property: "og:description", content: "Understand the campus. Improve the experience." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -120,6 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "alternate icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+  }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

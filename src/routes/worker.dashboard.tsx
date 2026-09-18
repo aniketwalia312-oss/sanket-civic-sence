@@ -19,13 +19,13 @@ import { useSanketAuth } from "@/hooks/useSanketAuth";
 export const Route = createFileRoute("/worker/dashboard")({
   head: () => ({
     meta: [
-      { title: "Field worker tasks — Sanket" },
+      { title: "Facility staff tasks — Sanket" },
       {
         name: "description",
-        content: "Priority-sorted municipal repair tasks with navigation and camera-verified completion proof.",
+        content: "Priority-sorted campus maintenance tasks with navigation and camera-verified completion proof.",
       },
-      { property: "og:title", content: "Field worker tasks — Sanket" },
-      { property: "og:description", content: "Mobile-first task queue for municipal field crews." },
+      { property: "og:title", content: "Facility staff tasks — Sanket" },
+      { property: "og:description", content: "Mobile-first task queue for university maintenance teams." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -43,7 +43,7 @@ function WorkerDashboard() {
     return (
       <AppShell>
         <div className="mx-auto max-w-md space-y-3 px-4 py-16 text-center">
-          <h1 className="text-xl font-semibold">Field worker access required</h1>
+          <h1 className="text-xl font-semibold">Staff access required</h1>
           <p className="text-sm text-muted-foreground">
             Enter your role passkey on the sign-in screen to unlock the task queue.
           </p>
@@ -126,7 +126,7 @@ function TaskCard({ task }: { task: Issue }) {
       toast.success(
         res.anomaly
           ? "Flagged for admin review — AI could not confirm the repair"
-          : "Resolution submitted for citizen audit",
+          : "Resolution submitted for student verification",
       );
       setOpen(false);
       setFile(null);

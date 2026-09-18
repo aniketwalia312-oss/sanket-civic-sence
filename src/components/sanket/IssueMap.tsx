@@ -14,7 +14,7 @@ export type MapPoint = {
 const RESOLVED = new Set(["closed_verified", "resolved_pending_audit"]);
 
 /**
- * Lightweight GIS canvas: normalises coordinates into a ward grid and renders
+ * Lightweight GIS canvas: normalises coordinates into a building grid and renders
  * heat blooms for active issues and calm markers for resolved ones.
  */
 export function IssueMap({
@@ -43,7 +43,7 @@ export function IssueMap({
     <div className={cn("civic-grid relative overflow-hidden rounded-xl border bg-secondary/40", className)}>
       {!bounds && (
         <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-          No mapped issues yet
+          No mapped reports yet
         </div>
       )}
       {bounds &&

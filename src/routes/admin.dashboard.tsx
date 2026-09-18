@@ -15,13 +15,13 @@ import { useSanketAuth } from "@/hooks/useSanketAuth";
 export const Route = createFileRoute("/admin/dashboard")({
   head: () => ({
     meta: [
-      { title: "Municipal command centre — Sanket" },
+      { title: "Campus Operations Hub — Sanket" },
       {
         name: "description",
-        content: "Ward-wise GIS clusters, SLA telemetry, worker assignment and the AI anomaly review queue.",
+        content: "Building-wise GIS clusters, SLA telemetry, worker assignment and the AI anomaly review queue.",
       },
-      { property: "og:title", content: "Municipal command centre — Sanket" },
-      { property: "og:description", content: "Live civic operations telemetry and AI anomaly review." },
+      { property: "og:title", content: "Campus Operations Hub — Sanket" },
+      { property: "og:description", content: "Live campus operations telemetry and AI anomaly review." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -78,13 +78,13 @@ function AdminDashboard() {
     }, {}),
   ).sort((a, b) => b[1] - a[1]);
 
-  const handleAssign = async (issueId: string, workerId: string) => {
+  const handleAssign Staff = async (issueId: string, workerId: string) => {
     try {
       await assign({ data: { issueId, workerId } });
       await queryClient.invalidateQueries();
       toast.success("Task assigned");
     } catch {
-      toast.error("Assignment failed");
+      toast.error("Assign Staffment failed");
     }
   };
 
@@ -92,8 +92,8 @@ function AdminDashboard() {
     <AppShell>
       <div className="mx-auto max-w-6xl space-y-6 px-4 py-8">
         <header>
-          <h1 className="text-2xl font-semibold tracking-tight">Command centre</h1>
-          <p className="text-sm text-muted-foreground">Live municipal telemetry and AI integrity oversight.</p>
+          <h1 className="text-2xl font-semibold tracking-tight">Operations Hub</h1>
+          <p className="text-sm text-muted-foreground">Live campus facility telemetry and AI integrity oversight.</p>
         </header>
 
         <div className="grid gap-3 sm:grid-cols-4">
@@ -108,7 +108,7 @@ function AdminDashboard() {
             <IssueMap points={issues} className="h-[340px]" />
           </div>
           <div className="panel p-5">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Ward clusters</h2>
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Building clusters</h2>
             <ul className="mt-3 space-y-2 text-sm">
               {wards.map(([ward, count]) => (
                 <li key={ward} className="flex items-center gap-3">
@@ -142,9 +142,9 @@ function AdminDashboard() {
                   </Link>
                   <p className="text-xs text-muted-foreground">{timeAgo(i.updated_at)}</p>
                 </div>
-                <Select onValueChange={(v) => void handleAssign(i.id, v)}>
+                <Select onValueChange={(v) => void handleAssign Staff(i.id, v)}>
                   <SelectTrigger className="w-52">
-                    <SelectValue placeholder="Assign worker" />
+                    <SelectValue placeholder="Assign Staff staff" />
                   </SelectTrigger>
                   <SelectContent>
                     {workers.map((w) => (
@@ -170,9 +170,9 @@ function AdminDashboard() {
                   {i.title}
                 </Link>
                 <StatusBadge status={i.status} />
-                <Select onValueChange={(v) => void handleAssign(i.id, v)}>
+                <Select onValueChange={(v) => void handleAssign Staff(i.id, v)}>
                   <SelectTrigger className="w-44">
-                    <SelectValue placeholder="Assign" />
+                    <SelectValue placeholder="Assign Staff" />
                   </SelectTrigger>
                   <SelectContent>
                     {workers.map((w) => (

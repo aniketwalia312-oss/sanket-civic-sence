@@ -17,13 +17,13 @@ import { useSanketAuth } from "@/hooks/useSanketAuth";
 export const Route = createFileRoute("/issues/$id")({
   head: () => ({
     meta: [
-      { title: "Civic issue detail — Sanket" },
+      { title: "Maintenance report detail — Sanket" },
       {
         name: "description",
         content:
-          "Full audit trail for a civic issue: evidence gallery, transparent priority breakdown, AI resolution analysis and citizen verification votes.",
+          "Full audit trail for a maintenance issue: evidence gallery, transparent priority breakdown, AI resolution analysis and student verification votes.",
       },
-      { property: "og:title", content: "Civic issue detail — Sanket" },
+      { property: "og:title", content: "Maintenance report detail — Sanket" },
       { property: "og:description", content: "Evidence, priority breakdown and community audit for this ticket." },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -47,7 +47,7 @@ function IssueDetail() {
 
   const submitVote = async (choice: Vote) => {
     if (!session) {
-      toast.error("Sign in to audit this resolution");
+      toast.error("Sign in to verify this resolution");
       return;
     }
     try {
@@ -133,7 +133,7 @@ function IssueDetail() {
 
           <div className="panel p-5">
             <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-              Community evidence ({data.reports.length})
+              Campus evidence ({data.reports.length})
             </h2>
             <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {data.reports.map((r) => (
@@ -179,7 +179,7 @@ function IssueDetail() {
               </p>
 
               <div className="border-t pt-4">
-                <h3 className="text-sm font-semibold">Citizen audit</h3>
+                <h3 className="text-sm font-semibold">Student & Faculty audit</h3>
                 <p className="text-xs text-muted-foreground">
                   If 30% or more neighbours report the issue is still present, the ticket reopens automatically.
                 </p>
@@ -210,7 +210,7 @@ function IssueDetail() {
             <Row label="Reports merged" value={String(issue.report_count)} />
             <Row label="Evidence photos" value={String(issue.evidence_count)} />
             <Row label="AI severity" value={`${issue.severity_score.toFixed(1)} / 10`} />
-            <Row label="Ward" value={issue.ward ?? "Unassigned"} />
+            <Row label="Building" value={issue.ward ?? "Unassigned"} />
             <Row label="Last update" value={timeAgo(issue.updated_at)} />
           </div>
         </aside>

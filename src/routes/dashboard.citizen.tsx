@@ -15,14 +15,14 @@ import { useSanketAuth } from "@/hooks/useSanketAuth";
 export const Route = createFileRoute("/dashboard/citizen")({
   head: () => ({
     meta: [
-      { title: "Citizen dashboard — Report & track civic issues | Sanket" },
+      { title: "Student dashboard — Report & track civic issues | Sanket" },
       {
         name: "description",
         content:
-          "File civic complaints with GPS-verified photos, follow the resolution timeline and explore the live municipal issue heatmap.",
+          "File maintenance reports with GPS-verified photos, follow the resolution timeline and explore the live campus maintenance heatmap.",
       },
-      { property: "og:title", content: "Citizen dashboard — Sanket" },
-      { property: "og:description", content: "Report, track and audit civic issues in your ward." },
+      { property: "og:title", content: "Student dashboard — Sanket" },
+      { property: "og:description", content: "Report, track and audit maintenance issues in your building." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -50,7 +50,7 @@ function CitizenDashboard() {
     <AppShell>
       <div className="mx-auto max-w-6xl space-y-6 px-4 py-8">
         <header>
-          <h1 className="text-2xl font-semibold tracking-tight">Citizen portal</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">Student & Faculty Portal</h1>
           <p className="text-sm text-muted-foreground">
             Every report is hashed, GPS-checked and merged with nearby complaints within 50 metres.
           </p>
@@ -85,11 +85,11 @@ function CitizenDashboard() {
 
         <section className="space-y-3">
           <div className="flex flex-wrap items-center gap-2">
-            <h2 className="mr-auto text-lg font-semibold">Live issue feed</h2>
+            <h2 className="mr-auto text-lg font-semibold">Live maintenance feed</h2>
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search title or address"
+              placeholder="Search title or building"
               className="w-full sm:w-64"
             />
           </div>
