@@ -78,13 +78,13 @@ function AdminDashboard() {
     }, {}),
   ).sort((a, b) => b[1] - a[1]);
 
-  const handleAssign Staff = async (issueId: string, workerId: string) => {
+  const handleAssignStaff = async (issueId: string, workerId: string) => {
     try {
       await assign({ data: { issueId, workerId } });
       await queryClient.invalidateQueries();
       toast.success("Task assigned");
     } catch {
-      toast.error("Assign Staffment failed");
+      toast.error("Assignment failed");
     }
   };
 
@@ -142,9 +142,9 @@ function AdminDashboard() {
                   </Link>
                   <p className="text-xs text-muted-foreground">{timeAgo(i.updated_at)}</p>
                 </div>
-                <Select onValueChange={(v) => void handleAssign Staff(i.id, v)}>
+                <Select onValueChange={(v) => void handleAssignStaff(i.id, v)}>
                   <SelectTrigger className="w-52">
-                    <SelectValue placeholder="Assign Staff staff" />
+                    <SelectValue placeholder="Assign staff" />
                   </SelectTrigger>
                   <SelectContent>
                     {workers.map((w) => (
@@ -170,7 +170,7 @@ function AdminDashboard() {
                   {i.title}
                 </Link>
                 <StatusBadge status={i.status} />
-                <Select onValueChange={(v) => void handleAssign Staff(i.id, v)}>
+                <Select onValueChange={(v) => void handleAssignStaff(i.id, v)}>
                   <SelectTrigger className="w-44">
                     <SelectValue placeholder="Assign Staff" />
                   </SelectTrigger>
